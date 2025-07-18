@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple URL Shortener</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 10%;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #0077cc;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        .short-url {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #222;
+        }
+
+        a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 Simple URL Shortener</h1>
+        <form method="POST">
+            <input type="text" name="url" placeholder="Enter your long URL here" required>
+            <br>
+            <button type="submit">Shorten URL</button>
+        </form>
+
+        {% if short_url %}
+        <div class="short-url">
+            <p><strong>Your short URL:</strong></p>
+            <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
